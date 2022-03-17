@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ATM
@@ -18,6 +19,19 @@ namespace ATM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var anATM = new Thread(
+                () => startATM());
+
+            anATM.Start();
+
+            var secondATM = new Thread(
+                () => startATM());
+
+            secondATM.Start();
+        }
+
+        private static void startATM() {
             Application.Run(new ATMForm());
         }
     }
