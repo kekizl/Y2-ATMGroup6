@@ -20,19 +20,21 @@ namespace ATM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Bank aBank = new Bank();
+
             var anATM = new Thread(
-                () => startATM());
+                () => startATM(aBank));
 
             anATM.Start();
 
             var secondATM = new Thread(
-                () => startATM());
+                () => startATM(aBank));
 
             secondATM.Start();
         }
 
-        private static void startATM() {
-            Application.Run(new ATMForm());
+        private static void startATM(Bank bank) {
+            Application.Run(new ATMForm(bank));
         }
     }
 }

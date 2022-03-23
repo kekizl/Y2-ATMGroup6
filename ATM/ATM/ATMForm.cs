@@ -13,7 +13,9 @@ namespace ATM
     public partial class ATMForm : Form
     {
         //local referance to the array of accounts
-        private Account[] ac = new Account[3];
+        //private Account[] ac = new Account[3];
+        private Bank Bank;
+        private Account[] ac;
 
         String input;
         int acNum = 0;
@@ -29,9 +31,11 @@ namespace ATM
 
         Button[,] btn = new Button[4, 4];
         Button[,] ctrl = new Button[2, 4];
-        public ATMForm()
+        public ATMForm(Bank bank)
         {
             InitializeComponent();
+            this.Bank = bank;
+            retrieveAccounts();
 
             input = "";
 
@@ -85,9 +89,9 @@ namespace ATM
                     count++;
                 }
             }
-            ac[0] = new Account(300, 1111, 111111);
-            ac[1] = new Account(750, 2222, 222222);
-            ac[2] = new Account(3000, 3333, 333333);
+          //ac[0] = new Account(300, 1111, 111111);
+          //ac[1] = new Account(750, 2222, 222222);
+          //ac[2] = new Account(3000, 3333, 333333);
 
             if(activeAccount == null)
             {
@@ -99,6 +103,10 @@ namespace ATM
          *    this method checks if input matches an existing account
          * 
          */
+        private void retrieveAccounts() {
+            this.ac = Bank.getBankAccounts();
+        
+        }
         private Account findAccount()
         {
 
@@ -211,6 +219,7 @@ namespace ATM
                 //attempt to decrement account by 10 punds
                 if (activeAccount.decrementBalance(10))
                 {
+
                     //if this is possible display new balance and await key press
                     textControlMain.Text = "new balance " + activeAccount.getBalance();
                     textControl1.Text = "";

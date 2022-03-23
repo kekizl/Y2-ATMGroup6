@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ATM
 {
-    class Account
+    public class Account
     {
         //the attributes for the account
         private int balance;
@@ -75,5 +75,24 @@ namespace ATM
         {
             return accountNum;
         }
+    }
+
+    public class Bank
+    {
+        private Account[] accounts = new Account[3];
+
+        public Bank()
+        {
+            accounts[0] = new Account(300, 1111, 111111);
+            accounts[1] = new Account(750, 2222, 222222);
+            accounts[2] = new Account(3000, 3333, 333333);
+
+        }
+
+        public Account[] getBankAccounts()
+        {
+            return accounts;
+        }
+
     }
 }
