@@ -6,13 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ATM
 {
     public partial class ATMForm : Form
     {
-       
+        //how to use semaphores: https://docs.microsoft.com/en-us/dotnet/api/system.threading.semaphore?view=net-6.0
+        private static Semaphore semaphore;
+
         private Bank Bank;
         //local referance to the array of accounts
         private Account[] ac;
@@ -40,6 +43,8 @@ namespace ATM
             retrieveAccounts();
 
             input = "";
+
+            semaphore = new Semaphore(1, 1);
 
             //how to add text to panels: https://stackoverflow.com/questions/57994165/how-can-i-write-text-on-a-panel-in-c
 
@@ -214,15 +219,17 @@ namespace ATM
             //opiton one is entered by the user
             else if (((Button)sender) == ctrl[0, 0] && textControlMain.Text == "10")
             {
-
+                semaphore.WaitOne();
                 //attempt to decrement account by 10 punds
-                if (activeAccount.decrementBalance(10))
+                if (activeAccount.getBalance() >= 10)
                 {
-
+                    int bal = activeAccount.getBalance();
+                    Thread.Sleep(5000);
+                    activeAccount.decrementBalance(10);
                     //if this is possible display new balance and await key press
                     textControlMain.Text = "new balance " + activeAccount.getBalance();
                     textControl1.Text = "";
-                    textControl2.Text = "exit";
+                    textControl2.Text = "exit";   
                 }
                 else
                 {
@@ -231,11 +238,18 @@ namespace ATM
                     textControl1.Text = "";
                     textControl2.Text = "exit";
                 }
+                semaphore.Release();
             }
             else if (((Button)sender) == ctrl[0, 1] && textControl1.Text == "50")
             {
-                if (activeAccount.decrementBalance(50))
+                semaphore.WaitOne();
+                if (activeAccount.getBalance() >= 50)
                 {
+                    Thread.Sleep(5000);
+                    int bal = activeAccount.getBalance();
+                    Thread.Sleep(5000);
+                    activeAccount.decrementBalance(50);
+                    //if this is possible display new balance and await key press
                     textControlMain.Text = "new balance " + activeAccount.getBalance();
                     textControl1.Text = "";
                     textControl2.Text = "exit";
@@ -246,11 +260,18 @@ namespace ATM
                     textControl1.Text = "";
                     textControl2.Text = "exit";
                 }
+                semaphore.Release();
             }
             else if (((Button)sender) == ctrl[0, 2] && textControl2.Text == "500")
             {
-                if (activeAccount.decrementBalance(500))
+                semaphore.WaitOne();
+                if (activeAccount.getBalance() >= 500)
                 {
+                    Thread.Sleep(5000);
+                    int bal = activeAccount.getBalance();
+                    Thread.Sleep(5000);
+                    activeAccount.decrementBalance(500);
+                    //if this is possible display new balance and await key press
                     textControlMain.Text = "new balance " + activeAccount.getBalance();
                     textControl1.Text = "";
                     textControl2.Text = "exit";
@@ -261,7 +282,7 @@ namespace ATM
                     textControl1.Text = "";
                     textControl2.Text = "exit";
                 }
-
+                semaphore.Release();
             }
             else if (((Button)sender) == ctrl[0, 2] && textControl2.Text == "exit")
             {
