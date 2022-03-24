@@ -46,6 +46,7 @@ namespace ATM
         {
             if (this.balance > amount)
             {
+                //includes artificial delays
                 Thread.Sleep(3000);
                 balance -= amount;
                 Thread.Sleep(3000);
