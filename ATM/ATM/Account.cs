@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ATM
 {
+    //Account class
     public class Account
     {
         //the attributes for the account
@@ -44,7 +46,10 @@ namespace ATM
         {
             if (this.balance > amount)
             {
+                //includes artificial delays
+                Thread.Sleep(3000);
                 balance -= amount;
+                Thread.Sleep(3000);
                 return true;
             }
             else
@@ -76,23 +81,33 @@ namespace ATM
             return accountNum;
         }
     }
-
+    //Bank class
     public class Bank
     {
+        //initializes account array
         private Account[] accounts = new Account[3];
 
+        //constructor
         public Bank()
         {
+            //Accounts given from code template
             accounts[0] = new Account(300, 1111, 111111);
             accounts[1] = new Account(750, 2222, 222222);
             accounts[2] = new Account(3000, 3333, 333333);
 
         }
 
-        public Account[] getBankAccounts()
+        /*
+         * This function returns all the accounts
+         *
+         * returns:
+         * the accounts
+         */
+        public Account[] getAccounts()
         {
             return accounts;
         }
 
     }
+
 }

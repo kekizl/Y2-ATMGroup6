@@ -12,9 +12,9 @@ namespace ATM
 {
     public partial class ATMForm : Form
     {
-        //local referance to the array of accounts
-        //private Account[] ac = new Account[3];
+       
         private Bank Bank;
+        //local referance to the array of accounts
         private Account[] ac;
 
         String input;
@@ -29,10 +29,12 @@ namespace ATM
         //this is a referance to the account that is being used
         private Account activeAccount = null;
 
+        //creates button grid
         Button[,] btn = new Button[4, 4];
         Button[,] ctrl = new Button[2, 4];
         public ATMForm(Bank bank)
         {
+            //initialization process 
             InitializeComponent();
             this.Bank = bank;
             retrieveAccounts();
@@ -89,10 +91,7 @@ namespace ATM
                     count++;
                 }
             }
-          //ac[0] = new Account(300, 1111, 111111);
-          //ac[1] = new Account(750, 2222, 222222);
-          //ac[2] = new Account(3000, 3333, 333333);
-
+  
             if(activeAccount == null)
             {
                 textControlMain.Text = "enter your account number..";
@@ -104,7 +103,7 @@ namespace ATM
          * 
          */
         private void retrieveAccounts() {
-            this.ac = Bank.getBankAccounts();
+            this.ac = Bank.getAccounts();
         
         }
         private Account findAccount()
