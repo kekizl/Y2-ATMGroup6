@@ -13,26 +13,34 @@ namespace ATM
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        
-     
+
+
+        /// <summary>
+        /// Main Function of the program
+        /// </summary>
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //bank object initialised
             Bank aBank = new Bank();
 
+            //thread to make first ATM
             var anATM = new Thread(
                 () => startATM(aBank));
 
             anATM.Start();
 
+            //thread to make second ATM
             var secondATM = new Thread(
                 () => startATM(aBank));
 
             secondATM.Start();
         }
-
+        /// <summary>
+        /// Creates an ATM form
+        /// </summary>
         private static void startATM(Bank bank) {
             Application.Run(new ATMForm(bank));
         }
