@@ -182,7 +182,7 @@ namespace ATM
                 else if (input.Length == 4)
                 {
                     pin = Convert.ToInt32(input);
-                    if (activeAccount.checkPin(pin))
+                    if (activeAccount.checkPin(pin) && activeAccount.blockedAccount == false)
                     {
                         dispOptions();
                     }
@@ -191,7 +191,7 @@ namespace ATM
                         input = "";
                         if (activeAccount.incorrectEntries == 3 || activeAccount.blockedAccount == true) 
                         {
-                            activeAccount.blockedAccount = true;
+                            activeAccount.blockAccount();
                             textControlMain.Text = "Blocked Account!";
                         }
                         else {

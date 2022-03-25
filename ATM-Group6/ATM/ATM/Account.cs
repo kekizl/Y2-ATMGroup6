@@ -75,6 +75,11 @@ namespace ATM
                 return false;
             }
         }
+        public Boolean blockAccount()
+        {
+            this.blockedAccount = true;
+            return true;
+        }
         public int getAccountNum()
         {
             return accountNum;
