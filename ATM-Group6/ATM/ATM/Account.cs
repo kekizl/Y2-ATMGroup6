@@ -13,6 +13,8 @@ namespace ATM
         private int balance;
         private int pin;
         private int accountNum;
+        public int incorrectEntries;
+        public bool blockedAccount = false;
 
         // a constructor that takes initial values for each of the attributes (balance, pin, accountNumber)
         public Account(int balance, int pin, int accountNum)

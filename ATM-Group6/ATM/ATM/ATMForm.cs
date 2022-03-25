@@ -186,6 +186,22 @@ namespace ATM
                     {
                         dispOptions();
                     }
+                    else {
+                        activeAccount.incorrectEntries++;
+                        input = "";
+                        if (activeAccount.incorrectEntries == 3 || activeAccount.blockedAccount == true) 
+                        {
+                            activeAccount.blockedAccount = true;
+                            textControlMain.Text = "Blocked Account!";
+                        }
+                        else {
+                            textControlMain.Text = (3 - activeAccount.incorrectEntries) + " entries left!";
+                        }
+                    }
+                }
+                else {
+                    textControlMain.Text = "Invalid input";
+                    input = "";
                 }
             }
             else if (((Button)sender) == btn[3, 1])
