@@ -28,3 +28,13 @@ C:\Users\veraborvinski\source\repos\ATM-Group6\ATM\ATM\obj\Debug\ATM.csproj.Gene
 C:\Users\veraborvinski\source\repos\ATM-Group6\ATM\ATM\obj\Debug\ATM.csproj.CoreCompileInputs.cache
 C:\Users\veraborvinski\source\repos\ATM-Group6\ATM\ATM\obj\Debug\ATM.exe
 C:\Users\veraborvinski\source\repos\ATM-Group6\ATM\ATM\obj\Debug\ATM.pdb
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\bin\Debug\ATM.exe.config
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\bin\Debug\ATM.exe
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\bin\Debug\ATM.pdb
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.csproj.AssemblyReference.cache
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.ATMForm.resources
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.Properties.Resources.resources
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.csproj.GenerateResource.cache
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.csproj.CoreCompileInputs.cache
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.exe
+C:\Users\christianzlatanov\source\repos\ATM-Group6\ATM-Group6\ATM\ATM\obj\Debug\ATM.pdb
